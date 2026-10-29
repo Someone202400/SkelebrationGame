@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Survivor: Outbreak</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        
+        <div id="hud">
+            <div class="hud-panel">
+                <div class="hud-label">ENERGY</div>
+                <div class="energy-bar-container">
+                    <div id="energy-bar" class="energy-bar"></div>
+                    <div id="energy-text" class="energy-text">100%</div>
+                </div>
+            </div>
+            <div class="hud-panel">
+                <div class="hud-label">SCORE</div>
+                <div id="score" class="hud-value">0</div>
+            </div>
+            <div class="hud-panel">
+                <div class="hud-label">TIME</div>
+                <div id="survival-time" class="hud-value">00:00</div>
+            </div>
+            <div class="hud-panel">
+                <div class="hud-label">ZOMBIES</div>
+                <div id="zombie-count" class="hud-value">0</div>
+            </div>
+            <button id="pause-btn" class="pause-btn" aria-label="Pause Game">⏸</button>
+        </div>
+
+        <div id="start-screen" class="screen-overlay active">
+            <div class="screen-content">
+                <h1 class="game-title">CYBER SURVIVOR: OUTBREAK</h1>
+                <p class="game-subtitle">Defend the Network. Answer to Survive.</p>
+                <div class="instructions">
+                    <h3>HOW TO PLAY</h3>
+                    <div class="control-row">
+                        <kbd>WASD</kbd> / <kbd>ARROWS</kbd> <span>Move</span>
+                    </div>
+                    <div class="control-row">
+                        <kbd>SPACE</kbd> / <kbd>CLICK</kbd> <span>Shoot</span>
+                    </div>
+                    <div class="control-row">
+                        <kbd>E</kbd> <span>Interact with Generators</span>
+                    </div>
+                    <div class="control-row">
+                        <kbd>ESC</kbd> <span>Pause</span>
+                    </div>
+                    <p class="tip">Touch Power Generators (cyan nodes) to answer IT questions and restore energy!</p>
+                </div>
+                <button id="start-btn" class="neon-btn large">START GAME</button>
+            </div>
+        </div>
+
+        <div id="pause-menu" class="screen-overlay">
+            <div class="screen-content pause-content">
+                <h2>PAUSED</h2>
+                <button id="resume-btn" class="neon-btn">RESUME</button>
+                <button id="restart-btn-pause" class="neon-btn secondary">RESTART</button>
+                <button id="main-menu-btn" class="neon-btn secondary">MAIN MENU</button>
+            </div>
+        </div>
+
+        <div id="game-over-screen" class="screen-overlay">
+            <div class="screen-content">
+                <h2 class="game-over-title">SYSTEM FAILURE</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value" id="final-time">00:00</span>
+                        <span class="stat-label">SURVIVAL TIME</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="final-kills">0</span>
+                        <span class="stat-label">ZOMBIES DEFEATED</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="final-questions">0</span>
+                        <span class="stat-label">QUESTIONS ANSWERED</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="final-score">0</span>
+                        <span class="stat-label">FINAL SCORE</span>
+                    </div>
+                </div>
+                <button id="play-again-btn" class="neon-btn large">PLAY AGAIN</button>
+            </div>
+        </div>
+
+        <div id="trivia-modal" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="generator-icon">⚡</span>
+                    <h3>POWER GENERATOR</h3>
+                </div>
+                <div id="question-text" class="question-text"></div>
+                <div id="answers-container" class="answers-container"></div>
+                <div id="trivia-feedback" class="trivia-feedback hidden"></div>
+            </div>
+        </div>
+
+        <div id="emp-effect" class="emp-overlay hidden"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
